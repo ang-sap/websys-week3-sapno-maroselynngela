@@ -3,169 +3,279 @@
   <head>
     <title>Ma. Roselyn Angela L. Sapno | Home</title>
     <style>
-      body {
-        font-family: "Segoe UI", Arial, sans-serif;
-
-        background-color: #fff5f5;
-
-        color: #4d4d4d;
-
+      * {
+        box-sizing: border-box;
         margin: 0;
+        padding: 0;
+      }
 
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        font-family: "Inter", system-ui, -apple-system, sans-serif;
+        background-color: #FFF5F6;
+        color: #2D151C;
         line-height: 1.6;
-
-        font-size: 18px;
+        font-size: 16px;
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
       }
 
       header {
-        background-color: #c0392b;
-
-        color: white;
-
+        background-color: #A50044;
+        color: #FFFFFF;
         text-align: center;
-
-        padding: 40px 20px;
+        padding: 25px 20px;
       }
 
       header h1 {
-        margin: 0;
-
-        font-size: 2.5em;
+        font-size: 1.8rem;
+        font-weight: 800;
+        letter-spacing: -0.5px;
+        margin-bottom: 5px;
       }
 
       header p {
-        margin: 10px 0 0;
-
-        font-size: 1.1em;
-
-        opacity: 0.9;
+        color: #FFD2DA;
+        font-size: 0.95rem;
       }
 
       nav {
-        background-color: #e74c3c;
-
-        text-align: center;
-
-        padding: 12px;
-
+        background-color: #FFFFFF;
         position: sticky;
-
         top: 0;
-
         z-index: 1000;
+        text-align: center;
+        padding: 12px;
+        border-bottom: 2px solid #FF9A9E;
+        box-shadow: 0 2px 8px rgba(165, 0, 68, 0.1);
       }
 
       nav a {
-        color: white;
-
+        color: #A50044;
         text-decoration: none;
-
-        font-weight: bold;
-
-        margin: 0 20px;
-
-        font-size: 1em;
+        font-weight: 600;
+        margin: 0 8px;
+        padding: 8px 16px;
+        border-radius: 6px;
+        font-size: 0.95rem;
+        transition: all 0.3s ease;
       }
 
       nav a:hover {
-        text-decoration: underline;
+        background-color: #FFF0F0;
+        color: #D52D00;
       }
 
       .sub-nav {
-        background-color: #f1948a;
-
+        background-color: #EF7627;
         text-align: center;
-
-        padding: 8px;
+        padding: 10px;
       }
 
       .sub-nav a {
-        color: #fcfcfc;
-
-        margin: 0 15px;
-
-        font-size: 0.85em;
-
+        color: #FFFFFF;
+        margin: 0 10px;
+        padding: 6px 14px;
+        font-weight: 600;
+        font-size: 0.85rem;
         text-decoration: none;
+        border-radius: 6px;
+        transition: all 0.3s ease;
+      }
 
-        font-weight: bold;
+      .sub-nav a:hover {
+        background-color: #D52D00;
+        transform: translateY(-2px);
+        display: inline-block;
+      }
+
+      section.tab-content {
+        display: none; 
+        animation: fadeIn 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+      }
+
+      section.tab-content:target {
+        display: block;
+      }
+
+      #hello.tab-content:target {
+        display: flex;
+      }
+
+      body:not(:has(.tab-content:target)) #hello.tab-content {
+        display: flex;
+      }
+
+      @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(15px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+
+      @keyframes wave {
+        0% { transform: rotate(0deg); }
+        10% { transform: rotate(14deg); }
+        20% { transform: rotate(-8deg); }
+        30% { transform: rotate(14deg); }
+        40% { transform: rotate(-4deg); }
+        50% { transform: rotate(10deg); }
+        60% { transform: rotate(0deg); }
+        100% { transform: rotate(0deg); }
+      }
+
+      .wave-emoji {
+        display: inline-block;
+        animation: wave 2.5s infinite;
+        transform-origin: 70% 70%;
       }
 
       section {
-        background-color: white;
+        background-color: #FFFFFF;
+        max-width: 850px;
+        margin: 40px auto; 
+        padding: 40px 50px; 
+        border-radius: 10px;
+        border: 1px solid #FFD8CC; 
+        box-shadow: 0 8px 20px rgba(213, 45, 0, 0.05);
+        position: relative;
+        overflow: hidden;
+      }
 
-        max-width: 900px;
+      section::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        width: 8px;
+        background: linear-gradient(to bottom, #D52D00 0%, #EF7627 25%, #FFFFFF 50%, #FF9A9E 75%, #A50044 100%);
+      }
 
+      #hello {
+        background-color: transparent;
+        border: none;
+        box-shadow: none;
         margin: 20px auto;
+        padding: 40px 20px;
+        min-height: 40vh;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+      }
 
-        padding: 30px;
+      #hello::before {
+        display: none;
+      }
 
-        border-radius: 12px;
+      #hello h2 {
+        font-size: 2.5rem;
+        font-weight: 800;
+        color: #D52D00;
+        border: none;
+        letter-spacing: -1px;
+        margin-bottom: 15px;
+      }
 
-        border-left: 6px solid #c0392b;
-
-        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-
-        overflow: auto;
+      #hello p {
+        font-size: 1.1rem;
+        color: #4A2B33;
+        max-width: 550px;
+        margin: 0 auto;
       }
 
       h2 {
-        color: #c0392b;
+        color: #A50044;
+        font-size: 1.75rem;
+        margin-bottom: 20px;
+        border-bottom: 1px solid #FFD8CC;
+        padding-bottom: 10px;
+      }
 
-        margin-top: 0;
-
-        border-bottom: 2px solid #ffeded;
-
-        padding-bottom: 5px;
+      p {
+        margin-bottom: 15px;
+        color: #4A2B33;
       }
 
       .profile-pic {
-        width: 220px;
-
+        width: 180px;
         height: auto;
-
-        border-radius: 10px;
-
+        border-radius: 12px;
         float: right;
-
-        margin-left: 25px;
-
+        margin-left: 30px;
         margin-bottom: 15px;
-
-        border: 5px solid #ffeded;
+        box-shadow: 0 6px 15px rgba(165, 0, 68, 0.15);
+        position: relative;
+        z-index: 2;
+        transition: transform 0.4s ease, box-shadow 0.4s ease;
       }
 
-      ul,
-      ol {
-        padding-left: 25px;
+      .profile-pic:hover {
+        transform: scale(1.05) rotate(-2deg);
+        box-shadow: 0 10px 20px rgba(165, 0, 68, 0.2);
       }
 
-      li {
-        margin-bottom: 8px;
+      ul, ol {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        padding: 0;
+        list-style-type: none;
+      }
+
+      ul li, ol li {
+        background-color: #FFF0F0; 
+        padding: 20px 25px; 
+        border-radius: 8px;
+        border: 1px solid #FF9A9E;
+        color: #4A2B33;
+        display: flex;
+        flex-direction: column;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+
+      ul li:hover, ol li:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 8px 15px rgba(213, 45, 0, 0.1);
+      }
+
+      ul li strong, ol li a {
+        display: block;
+        font-size: 1.05rem;
+        color: #A50044;
+        margin-bottom: 4px;
+        text-decoration: none;
+      }
+
+      ol li a {
+        color: #D52D00;
+      }
+
+      ul li p, ol li p {
+        margin: 0;
+        font-size: 0.9rem;
       }
 
       footer {
-        background-color: #922b21;
-
-        color: white;
-
+        background-color: #A50044;
+        color: #FFD2DA;
         text-align: center;
-
-        padding: 25px;
-
-        margin-top: 40px;
-
-        font-size: 0.9em;
+        padding: 30px 20px;
+        margin-top: auto;
+        font-size: 0.85rem;
       }
 
       a {
-        color: #c0392b;
-
+        color: #D52D00;
         transition: color 0.3s;
+        font-weight: 600;
       }
 
       a:hover {
-        color: #e74c3c;
+        color: #A50044;
       }
     </style>
   </head>
@@ -174,16 +284,25 @@
       <h1>Ma. Roselyn Angela L. Sapno</h1>
       <p>Information Technology Student | Mobile & Web Applications</p>
     </header>
+    
     <nav>
       <a href="index.html">Home</a>
       <a href="about.html">About</a>
     </nav>
+
     <div class="sub-nav">
+      <a href="#hello">Hi!</a>
       <a href="#about">About Me</a>
       <a href="#hobbies">Hobbies</a>
       <a href="#websites">Websites</a>
     </div>
-    <section id="about">
+
+    <section id="hello" class="tab-content">
+      <h2>Hi! <span class="wave-emoji">👋</span></h2>
+      <p>Welcome to my personal website. Use the navigation menu above to learn more about my journey, what I love to do in my free time, and my favorite places on the internet.</p>
+    </section>
+
+    <section id="about" class="tab-content">
       <img
         src="assets/profpic.jpg"
         alt="Ma. Roselyn Angela L. Sapno"
@@ -202,40 +321,43 @@
         something that actually works and looks good.
       </p>
     </section>
-    <section id="hobbies">
+
+    <section id="hobbies" class="tab-content">
       <h2>Hobbies</h2>
       <ul>
         <li>
-          <strong>Playing Games:</strong> I like trying different types of
-          games, especially ones with interesting mechanics.
+          <strong>Playing Games</strong>
+          <p>I like trying different types of games, especially ones with interesting mechanics.</p>
         </li>
         <li>
-          <strong>Watching:</strong> I watch series or movies when I want to
-          relax or get ideas.
+          <strong>Watching</strong>
+          <p>I watch series or movies when I want to relax or get ideas.</p>
         </li>
         <li>
-          <strong>Music:</strong> I usually listen to music while coding because
-          it helps me focus.
+          <strong>Music</strong>
+          <p>I usually listen to music while coding because it helps me focus.</p>
         </li>
       </ul>
     </section>
-    <section id="websites">
+
+    <section id="websites" class="tab-content">
       <h2>Favorite Websites</h2>
       <ol>
         <li>
-          <a href="https://www.roblox.com" target="_blank">Roblox</a> - A
-          platform where I can both play and explore game creation
+          <a href="https://www.roblox.com" target="_blank">Roblox</a>
+          <p>A platform where I can both play and explore game creation.</p>
         </li>
         <li>
-          <a href="https://www.youtube.com" target="_blank">YouTube</a> - For
-          tutorials, tech content, and entertainment
+          <a href="https://www.youtube.com" target="_blank">YouTube</a>
+          <p>For tutorials, tech content, and entertainment.</p>
         </li>
         <li>
-          <a href="https://www.tiktok.com" target="_blank">TikTok</a> - For
-          quick content and trends
+          <a href="https://www.tiktok.com" target="_blank">TikTok</a>
+          <p>For quick content and trends.</p>
         </li>
       </ol>
     </section>
+
     <footer>
       2026 Activity 3 | Developed by Ma. Roselyn Angela L. Sapno ❤️
     </footer>
